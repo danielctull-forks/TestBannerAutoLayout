@@ -17,17 +17,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WwY-c3-L1j">
+                            <containerView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WwY-c3-L1j">
                                 <rect key="frame" x="0.0" y="135" width="600" height="465"/>
                                 <connections>
                                     <segue destination="2Xb-cI-IPw" kind="embed" id="Nng-Ly-mv1"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dw9-FR-7ep">
+                            <containerView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dw9-FR-7ep">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="135" id="HIi-Bu-sfM"/>
-                                </constraints>
                                 <connections>
                                     <segue destination="F3u-CE-mD9" kind="embed" id="IjF-Ne-nTD"/>
                                 </connections>
@@ -35,7 +32,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dw9-FR-7ep" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Hrf-HJ-Ecp"/>
+                            <constraint firstAttribute="top" secondItem="dw9-FR-7ep" secondAttribute="top" id="Hrf-HJ-Ecp"/>
                             <constraint firstAttribute="trailing" secondItem="dw9-FR-7ep" secondAttribute="trailing" id="RlD-Do-9Ln"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="WwY-c3-L1j" secondAttribute="bottom" id="b3t-kO-0Zq"/>
                             <constraint firstAttribute="trailing" secondItem="WwY-c3-L1j" secondAttribute="trailing" id="nqW-Q7-8Oo"/>
@@ -46,8 +43,7 @@
                     </view>
                     <connections>
                         <outlet property="bannerContainer" destination="dw9-FR-7ep" id="T7C-bb-ach"/>
-                        <outlet property="bannerhHeightConstraint" destination="HIi-Bu-sfM" id="wjS-mk-Xvg"/>
-                        <outlet property="contentContainer" destination="WwY-c3-L1j" id="xzT-2F-D0w"/>
+                        <outlet property="bannerMarginConstraint" destination="Hrf-HJ-Ecp" id="hDH-8K-992"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -58,6 +54,10 @@
         <scene sceneID="Yv2-cB-GAv">
             <objects>
                 <viewController id="2Xb-cI-IPw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DFw-Ra-LGX"/>
+                        <viewControllerLayoutGuide type="bottom" id="amj-6g-B8d"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yrc-yc-2SG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="465"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -84,13 +84,20 @@
         <scene sceneID="fyT-n8-RaA">
             <objects>
                 <viewController id="F3u-CE-mD9" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nQK-y9-uUy"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xm1-bZ-hbU"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8eP-fR-Vdr">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="135"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJv-QR-kOg">
+                            <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="lJv-QR-kOg">
                                 <rect key="frame" x="20" y="20" width="560" height="95"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="qjQ-VQ-8qA"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.078431372550000003" green="0.64313725489999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>

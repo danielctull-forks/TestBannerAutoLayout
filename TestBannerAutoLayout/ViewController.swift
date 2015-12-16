@@ -11,11 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var bannerContainer: UIView!
-    @IBOutlet weak var contentContainer: UIView!
-    @IBOutlet weak var bannerhHeightConstraint: NSLayoutConstraint!
-    
-    var originalBannerHeight: CGFloat = 0.0
-    var firstRun = true
+    @IBOutlet weak var bannerMarginConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,18 +30,15 @@ class ViewController: UIViewController {
     }
     
     func tapAction(sender: AnyObject){
-        if firstRun {
-            self.originalBannerHeight = self.bannerContainer.frame.height
-            firstRun = false
-        }
         
         //toggle heights...
-        var newBannerHeight: CGFloat = 0.0
-        if self.bannerhHeightConstraint.constant == 0.0 {
-            newBannerHeight = self.originalBannerHeight
+        var margin: CGFloat = 0.0
+        if bannerMarginConstraint.constant == 0.0 {
+            margin = self.bannerContainer.systemLayoutSizeFittingSize(CGSize(width: view.bounds.width, height: CGFloat.max)).height
         }
+
         UIView.animateWithDuration(0.5) { () -> Void in
-            self.bannerhHeightConstraint.constant =     newBannerHeight
+            self.bannerMarginConstraint.constant = margin
             self.view.layoutIfNeeded()
         }
         
